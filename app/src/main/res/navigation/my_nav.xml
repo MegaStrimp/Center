@@ -38,4 +38,13 @@
             android:name="currentUser"
             app:argType="com.example.center.model.User" />
     </fragment>
+    <fragment
+        android:id="@+id/DateFragment"
+        android:name="com.example.center.fragments.date.DateFragment"
+        android:label="fragment_date"
+        tools:layout="@layout/fragment_date" >
+        <action
+            android:id="@+id/action_dateFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
 </navigation>
