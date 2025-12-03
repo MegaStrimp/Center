@@ -10,7 +10,5 @@ import kotlinx.parcelize.Parcelize
 data class Category(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val firstName: String,
-    val lastName: String,
-    val age: Int
-): Parcelable
+    val title: String
+) : Parcelable

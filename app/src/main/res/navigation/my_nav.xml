@@ -3,46 +3,58 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/listFragment">
+    app:startDestination="@id/DateFragment">
 
     <fragment
         android:id="@+id/listFragment"
         android:name="com.example.center.fragments.list.ListFragment"
         android:label="List"
-        tools:layout="@layout/fragment_list" >
+        tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_listFragment_to_addFragment"
             app:destination="@id/addFragment" />
         <action
             android:id="@+id/action_listFragment_to_updateFragment"
             app:destination="@id/updateFragment" />
+        <argument
+            android:name="currentDate"
+            app:argType="com.example.center.model.Date" />
+        <action
+            android:id="@+id/action_listFragment_to_DateFragment"
+            app:destination="@id/DateFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
         android:name="com.example.center.fragments.add.AddFragment"
         android:label="Add"
-        tools:layout="@layout/fragment_add" >
+        tools:layout="@layout/fragment_add">
         <action
             android:id="@+id/action_addFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <argument
+            android:name="currentDate"
+            app:argType="com.example.center.model.Date" />
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
         android:name="com.example.center.fragments.update.UpdateFragment"
         android:label="Update"
-        tools:layout="@layout/fragment_update" >
+        tools:layout="@layout/fragment_update">
         <action
             android:id="@+id/action_updateFragment_to_listFragment"
             app:destination="@id/listFragment" />
         <argument
-            android:name="currentUser"
-            app:argType="com.example.center.model.User" />
+            android:name="currentTask"
+            app:argType="com.example.center.model.Task" />
+        <argument
+            android:name="currentDate"
+            app:argType="com.example.center.model.Date" />
     </fragment>
     <fragment
         android:id="@+id/DateFragment"
         android:name="com.example.center.fragments.date.DateFragment"
         android:label="fragment_date"
-        tools:layout="@layout/fragment_date" >
+        tools:layout="@layout/fragment_date">
         <action
             android:id="@+id/action_dateFragment_to_listFragment"
             app:destination="@id/listFragment" />

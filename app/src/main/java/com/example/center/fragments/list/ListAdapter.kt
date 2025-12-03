@@ -7,52 +7,53 @@ import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.center.R
-import com.example.center.model.User
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.center.model.Date
+import com.example.center.model.Task
 
-class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>()
+class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>()
 {
-    private var userList = emptyList<User>()
+    private var taskList = emptyList<Task>()
+    private var currentDate = Date(0, "")
 
-    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
-    {
 
-    }
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder
     {
-        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.custom_row,parent,false))
+        return MyViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.custom_row, parent, false)
+        )
     }
 
     override fun getItemCount(): Int
     {
-        return userList.size
+        return taskList.size
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int)
     {
         val id_txt = holder.itemView.findViewById<TextView>(R.id.id_txt)
-        val firstName_txt = holder.itemView.findViewById<TextView>(R.id.firstName_txt)
-        val lastName_txt = holder.itemView.findViewById<TextView>(R.id.lastName_txt)
-        val age_txt = holder.itemView.findViewById<TextView>(R.id.age_txt)
+        val text_txt = holder.itemView.findViewById<TextView>(R.id.text_txt)
 
-        val currentItem = userList[position]
+        val currentItem = taskList[position]
 
         id_txt.text = currentItem.id.toString()
-        firstName_txt.text = currentItem.firstName
-        lastName_txt.text = currentItem.lastName
-        age_txt.text = currentItem.age.toString()
+        text_txt.text = currentItem.text
 
         holder.itemView.findViewById<View>(R.id.rowLayout).setOnClickListener(
-        {
-            val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
-            holder.itemView.findNavController().navigate(action)
-        })
+            {
+                val action = ListFragmentDirections.actionListFragmentToUpdateFragment(
+                    currentItem,
+                    currentDate
+                )
+                holder.itemView.findNavController().navigate(action)
+            })
     }
 
-    fun setData(user: List<User>)
+    fun setData(task: List<Task>, date: Date)
     {
-        this.userList = user
+        this.taskList = task
+        this.currentDate = date
         notifyDataSetChanged()
     }
 }

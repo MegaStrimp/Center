@@ -8,20 +8,18 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.center.R
 import com.example.center.model.Date
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class DateAdapter: RecyclerView.Adapter<DateAdapter.MyViewHolder>()
+class DateAdapter : RecyclerView.Adapter<DateAdapter.MyViewHolder>()
 {
     private var dateList = emptyList<Date>()
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
-    {
-
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder
     {
-        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.date_row,parent,false))
+        return MyViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.date_row, parent, false)
+        )
     }
 
     override fun getItemCount(): Int
@@ -39,11 +37,11 @@ class DateAdapter: RecyclerView.Adapter<DateAdapter.MyViewHolder>()
         id_txt.text = currentItem.id.toString()
         date_txt.text = currentItem.date
 
-        /*holder.itemView.findViewById<View>(R.id.rowLayout).setOnClickListener(
-        {
-            val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
-            holder.itemView.findNavController().navigate(action)
-        })*/
+        holder.itemView.findViewById<View>(R.id.rowLayout).setOnClickListener(
+            {
+                val action = DateFragmentDirections.actionDateFragmentToListFragment(currentItem)
+                holder.itemView.findNavController().navigate(action)
+            })
     }
 
     fun setData(date: List<Date>)
