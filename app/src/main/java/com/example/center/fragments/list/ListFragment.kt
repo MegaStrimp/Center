@@ -45,10 +45,10 @@ class ListFragment : Fragment()
         mCategoryViewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
         mTaskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
         mDateViewModel = ViewModelProvider(this).get(DateViewModel::class.java)
-        mTaskViewModel.readAllData.observe(
+        mTaskViewModel.readAllData(args.currentDate.id).observe(
             viewLifecycleOwner,
             Observer { task -> adapter.setData(task, args.currentDate) })
-        mDateViewModel.readAllData.observe(
+        mCategoryViewModel.readAllData.observe(
             viewLifecycleOwner
         ) { list ->
             if (list.isNullOrEmpty())
@@ -87,6 +87,7 @@ class ListFragment : Fragment()
     {
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes") { _, _ ->
+            mTaskViewModel.deleteDatedTasks(args.currentDate.id)
             mDateViewModel.deleteDate(args.currentDate)
             Toast.makeText(
                 requireContext(),

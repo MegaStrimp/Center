@@ -6,8 +6,6 @@ import com.example.center.model.Task
 
 class TaskRepository(private val taskDao: TaskDao)
 {
-    val readAllData: LiveData<List<Task>> = taskDao.readAllData()
-
     suspend fun addTask(task: Task)
     {
         taskDao.addTask(task)
@@ -27,4 +25,15 @@ class TaskRepository(private val taskDao: TaskDao)
     {
         taskDao.deleteAllTasks()
     }
+
+    suspend fun deleteDatedTasks(date: Int): LiveData<List<Task>>
+    {
+        return taskDao.deleteDatedTasks(date)
+    }
+
+    fun readAllData(date: Int): LiveData<List<Task>>
+    {
+        return taskDao.readAllData(date)
+    }
+
 }

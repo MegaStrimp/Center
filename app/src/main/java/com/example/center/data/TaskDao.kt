@@ -24,6 +24,9 @@ interface TaskDao
     @Query("DELETE FROM task_table")
     suspend fun deleteAllTasks()
 
-    @Query("SELECT * FROM task_table ORDER BY id ASC")
-    fun readAllData(): LiveData<List<Task>>
+    @Query("DELETE FROM task_table WHERE date = :date")
+    suspend fun deleteDatedTasks(date: Int): LiveData<List<Task>>
+
+    @Query("SELECT * FROM task_table WHERE date = :date ORDER BY id ASC")
+    fun readAllData(date: Int): LiveData<List<Task>>
 }
