@@ -26,7 +26,7 @@ class TaskRepository(private val taskDao: TaskDao)
         taskDao.deleteAllTasks()
     }
 
-    suspend fun deleteDatedTasks(date: Int): LiveData<List<Task>>
+    suspend fun deleteDatedTasks(date: Int)
     {
         return taskDao.deleteDatedTasks(date)
     }

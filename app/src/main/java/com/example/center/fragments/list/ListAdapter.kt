@@ -34,11 +34,13 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>()
     {
         val id_txt = holder.itemView.findViewById<TextView>(R.id.id_txt)
         val text_txt = holder.itemView.findViewById<TextView>(R.id.text_txt)
+        val category_txt = holder.itemView.findViewById<TextView>(R.id.category_txt)
 
         val currentItem = taskList[position]
 
         id_txt.text = currentItem.id.toString()
         text_txt.text = currentItem.text
+        category_txt.text = currentItem.category
 
         holder.itemView.findViewById<View>(R.id.rowLayout).setOnClickListener(
             {
