@@ -41,6 +41,14 @@ class DateFragment : Fragment()
         mDateViewModel.readAllData.observe(
             viewLifecycleOwner,
             Observer { date -> adapter.setData(date) })
+        mDateViewModel.readAllData.observe(
+            viewLifecycleOwner
+        ) { list ->
+            if (list.isNullOrEmpty())
+            {
+                presetDates()
+            }
+        }
 
         val floatingActionButton =
             view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
@@ -53,5 +61,13 @@ class DateFragment : Fragment()
             })
 
         return view
+    }
+
+    private fun presetDates()
+    {
+        mDateViewModel.addDate(Date(0, "2026-01-01"))
+        mDateViewModel.addDate(Date(0, "2026-01-02"))
+        mDateViewModel.addDate(Date(0, "2026-01-03"))
+        mDateViewModel.addDate(Date(0, "2026-01-04"))
     }
 }

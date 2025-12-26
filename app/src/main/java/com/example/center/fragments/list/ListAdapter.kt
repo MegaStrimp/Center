@@ -38,6 +38,17 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>()
 
         val currentItem = taskList[position]
 
+        val border = when (currentItem.category)
+        {
+            "Work" -> R.drawable.rotating_border_work
+            "Media" -> R.drawable.rotating_border_media
+            "Life" -> R.drawable.rotating_border_life
+            else -> R.drawable.rotating_border_default
+        }
+
+        holder.itemView.findViewById<View>(R.id.border_container)
+            .setBackgroundResource(border)
+
         id_txt.text = currentItem.id.toString()
         text_txt.text = currentItem.text
         category_txt.text = currentItem.category
