@@ -77,6 +77,7 @@ class AddFragment : Fragment()
             val action = AddFragmentDirections.actionAddFragmentToListFragment(
                 args.currentDate
             )
+            
             findNavController().navigate(action)
         } else
         {

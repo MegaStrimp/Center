@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".fragments.add.AddFragment">
 
+    <ImageView
+        android:id="@+id/bgImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        android:src="@drawable/page_background" />
+
     <EditText
         android:id="@+id/addText_et"
         android:layout_width="wrap_content"
@@ -13,9 +20,9 @@
         android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="Text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        android:backgroundTint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
@@ -34,9 +41,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="133dp"
+        android:backgroundTint="#F0867B"
         android:text="Add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/categories" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

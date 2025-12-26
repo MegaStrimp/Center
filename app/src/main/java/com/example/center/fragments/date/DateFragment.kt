@@ -31,8 +31,10 @@ class DateFragment : Fragment()
         // Recyclerview
         val adapter = DateAdapter()
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerview)
+
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
 
         // DateViewModel
         mDateViewModel = ViewModelProvider(this).get(DateViewModel::class.java)

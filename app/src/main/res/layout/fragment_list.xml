@@ -6,17 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".fragments.list.ListFragment">
 
+    <ImageView
+        android:id="@+id/bgImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/page_background"
+        android:scaleType="center" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/deleteButton"
         android:layout_width="58dp"
         android:layout_height="54dp"
         android:clickable="true"
+        app:tint="@android:color/white"
+        android:backgroundTint="#826DE8"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerview"
         app:layout_constraintEnd_toStartOf="@+id/floatingActionButton"
         app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toEndOf="@+id/backButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.965"
+        app:layout_constraintVertical_bias="1"
         app:srcCompat="@drawable/ic_delete" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -37,7 +46,8 @@
         android:layout_marginBottom="24dp"
         android:clickable="true"
         android:focusable="true"
-        android:tint="@android:color/white"
+        app:tint="@android:color/white"
+        android:backgroundTint="#F0867B"
         android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +65,8 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_back"
-        android:tint="@android:color/white"
+        app:tint="@android:color/white"
+        android:backgroundTint="#F0867B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.048"
