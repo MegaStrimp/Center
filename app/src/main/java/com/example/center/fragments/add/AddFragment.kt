@@ -18,6 +18,7 @@ import com.example.center.R
 import com.example.center.model.Task
 import com.example.center.viewmodel.CategoryViewModel
 import com.example.center.viewmodel.TaskViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class AddFragment : Fragment()
 {
@@ -46,6 +47,16 @@ class AddFragment : Fragment()
         add_btn.setOnClickListener(
             {
                 insertDataToDatabase()
+            })
+
+        val backButton = view.findViewById<FloatingActionButton>(R.id.backButton)
+        backButton.setOnClickListener(
+            {
+                val action = AddFragmentDirections.actionAddFragmentToListFragment(
+                    args.currentDate
+                )
+
+                findNavController().navigate(action)
             })
 
         mCategoryViewModel.readAllData.observe(viewLifecycleOwner) { categoryList ->
@@ -77,7 +88,7 @@ class AddFragment : Fragment()
             val action = AddFragmentDirections.actionAddFragmentToListFragment(
                 args.currentDate
             )
-            
+
             findNavController().navigate(action)
         } else
         {
