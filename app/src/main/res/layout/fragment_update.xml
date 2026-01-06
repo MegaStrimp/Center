@@ -19,6 +19,7 @@
         android:id="@+id/updateText_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="Text"
         android:backgroundTint="@color/white"
@@ -35,10 +36,8 @@
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toTopOf="@+id/update_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.573"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updateText_et"
-        app:layout_constraintVertical_bias="0.35" />
+        app:layout_constraintTop_toBottomOf="@+id/updateText_et" />
 
     <Button
         android:id="@+id/update_btn"
